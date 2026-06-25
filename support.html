@@ -5,19 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NeonTempo サポート</title>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+      document.querySelectorAll("[data-lang]").forEach((section) => {
+        section.hidden = section.dataset.lang !== language;
+      });
+      document.querySelectorAll(".language-switch button").forEach((button) => {
+        const isActive = button.dataset.targetLang === language;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".language-switch button").forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.targetLang));
+      });
+      setLanguage("ja");
+    });
+  </script>
 </head>
 <body>
   <main class="page document">
     <p class="eyebrow">NeonTempo</p>
-    <h1>サポート</h1>
-    <p class="lead">不具合報告、ご質問、ご要望はこちらから送信してください。</p>
+    <h1>Support</h1>
+
+    <nav class="language-switch" aria-label="Language selection">
+      <button type="button" data-target-lang="ja">日本語</button>
+      <button type="button" data-target-lang="en">English</button>
+      <button type="button" data-target-lang="ko">한국어</button>
+      <button type="button" data-target-lang="zh">中文</button>
+      <button type="button" data-target-lang="es">Español</button>
+    </nav>
+
+    <section data-lang="ja">
+      <h2>サポート</h2>
+      <p class="lead">NeonTempoに関するご質問、不具合報告、ご要望は、以下のメールアドレスまたはお問い合わせフォームからご連絡ください。</p>
+      <p>返信が必要な場合は、メール本文またはフォーム内に返信先メールアドレスを入力してください。</p>
+    </section>
+
+    <section data-lang="en" hidden>
+      <h2>Support</h2>
+      <p class="lead">For questions, bug reports, or support requests about NeonTempo, please contact us by email or through the support form below.</p>
+      <p>If you need a reply, please include your email address in your message or in the form.</p>
+    </section>
+
+    <section data-lang="ko" hidden>
+      <h2>지원</h2>
+      <p class="lead">NeonTempo에 대한 질문, 버그 신고 또는 지원 요청은 아래 이메일 주소나 문의 양식을 통해 보내 주세요.</p>
+      <p>답변이 필요한 경우 메시지 또는 양식에 회신 가능한 이메일 주소를 입력해 주세요.</p>
+    </section>
+
+    <section data-lang="zh" hidden>
+      <h2>支持</h2>
+      <p class="lead">如需咨询 NeonTempo、报告问题或请求支持，请通过以下电子邮件地址或支持表单联系我们。</p>
+      <p>如果需要回复，请在邮件正文或表单中填写可联系的电子邮件地址。</p>
+    </section>
+
+    <section data-lang="es" hidden>
+      <h2>Soporte</h2>
+      <p class="lead">Para preguntas, informes de errores o solicitudes de soporte sobre NeonTempo, ponte en contacto por correo electrónico o mediante el formulario de soporte.</p>
+      <p>Si necesitas una respuesta, incluye tu dirección de correo electrónico en el mensaje o en el formulario.</p>
+    </section>
 
     <section>
-      <h2>お問い合わせフォーム</h2>
-      <p>返信が必要な場合は、フォーム内にメールアドレスを入力してください。</p>
+      <h2>Contact / お問い合わせ</h2>
+      <p>Email: <a href="mailto:ryouta.996445@gmail.com">ryouta.996445@gmail.com</a></p>
       <p class="support-actions">
-        <a class="button-link" href="https://docs.google.com/forms/d/e/1FAIpQLScTTrbQy4wn0mMlJbpJUfd9tOYJnFx-yU84ljeAGF1Gi9IdHQ/viewform" target="_blank" rel="noopener">フォームを開く</a>
+        <a class="button-link" href="mailto:ryouta.996445@gmail.com">メールを送る / Send Email</a>
+        <a class="button-link secondary" href="https://docs.google.com/forms/d/e/1FAIpQLScTTrbQy4wn0mMlJbpJUfd9tOYJnFx-yU84ljeAGF1Gi9IdHQ/viewform" target="_blank" rel="noopener">フォームを開く / Open Form</a>
       </p>
+      <p>Support form: <a href="https://docs.google.com/forms/d/e/1FAIpQLScTTrbQy4wn0mMlJbpJUfd9tOYJnFx-yU84ljeAGF1Gi9IdHQ/viewform" target="_blank" rel="noopener">https://docs.google.com/forms/d/e/1FAIpQLScTTrbQy4wn0mMlJbpJUfd9tOYJnFx-yU84ljeAGF1Gi9IdHQ/viewform</a></p>
       <iframe
         class="support-form"
         src="https://docs.google.com/forms/d/e/1FAIpQLScTTrbQy4wn0mMlJbpJUfd9tOYJnFx-yU84ljeAGF1Gi9IdHQ/viewform?embedded=true"

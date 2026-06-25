@@ -89,7 +89,41 @@ h1 {
   text-decoration: none;
 }
 
+.button-link.secondary {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+}
+
+.language-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.language-switch button {
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.language-switch button.is-active {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--cyan), var(--pink));
+  color: #080a12;
+}
+
 .support-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 16px;
 }
 
